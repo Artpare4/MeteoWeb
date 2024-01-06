@@ -5,7 +5,9 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
@@ -17,7 +19,27 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email')
+            ->add('firstname',TextType::class,['empty_data'=>'',
+                'constraints'=>[
+                    new Length([
+                        'max'=>100,
+                        'maxMessage'=> 'Votre nom doit faire au maximum {{ limit }} caractères'
+                    ])
+                ]])
+            ->add('lastname',TextType::class,['empty_data'=>'',
+                'constraints'=>[
+                    new Length([
+                        'max'=>100,
+                        'maxMessage'=> 'Votre prénom doit faire au maximum {{ limit }} caractères'
+                    ])
+                ]])
+            ->add('email',EmailType::class,['empty_data'=>'',
+                'constraints'=>[
+                    new Length([
+                        'max'=>180,
+                        'maxMessage'=> 'Votre email est trop long, il doit faire au maximum {{ limit }} caractères maximum'
+                    ])
+                ]])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
