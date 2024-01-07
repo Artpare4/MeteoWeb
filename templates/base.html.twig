@@ -16,9 +16,19 @@
         {% endblock %}
     </head>
     <body>
+        <header>
+            <img src="{{ asset('logometeo.png') }}" alt="logo">
+            <div class="headercontent">
+                <div class="headertitle">
+                    <h1>MétéoWeb</h1>
+                </div>
 
-        <a class="formbtn" href="{{ path('app_login') }}">Connexion</a>
-        <a class="formbtn" href="{{ path('app_registration') }}">Inscription</a>
-        {% block body %}{% endblock %}
+                <div class="headerBtn">
+                    <a class="formbtn" href="{{ path('app_login') }}">Connexion</a>
+                    <a class="formbtn" href="{{ path('app_registration') }}">Inscription</a>
+                </div>
+            </div>
+        </header>
+            {% block body %}{% endblock %}
     </body>
 </html>
