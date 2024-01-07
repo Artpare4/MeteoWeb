@@ -1,5 +1,6 @@
 body{
     margin: 0;
+    background-color: #5eb5e0;
 }
 
 img{
@@ -15,7 +16,6 @@ img{
 }
 
 header{
-    background-color: #5eb5e0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
