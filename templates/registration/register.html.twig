@@ -15,7 +15,11 @@
                     'class': 'formlabel'
                 }
             }) }}
-            {{ form_widget(registrationForm.firstname) }}
+            {{ form_widget(registrationForm.firstname,{
+                'attr':{
+                    'class': 'formWidget'
+                }
+            }) }}
         </div>
         <div class="formRow">
             {{ form_label(registrationForm.lastname,'Nom',{
@@ -23,7 +27,11 @@
                     'class': 'formlabel'
                 }
             })}}
-            {{ form_widget(registrationForm.lastname) }}
+            {{ form_widget(registrationForm.lastname,{
+                'attr':{
+                    'class': 'formWidget'
+                }
+            }) }}
         </div>
         <div class="formRow">
             {{ form_label(registrationForm.email,'Email',{
@@ -31,7 +39,11 @@
                     'class': 'formlabel'
                 }
             })}}
-            {{ form_widget(registrationForm.email) }}
+            {{ form_widget(registrationForm.email,{
+                'attr':{
+                    'class': 'formWidget'
+                }
+            }) }}
         </div>
         <div class="formRow">
             {{ form_label(registrationForm.plainPassword,'Mot de passe',{
@@ -39,7 +51,11 @@
                     'class': 'formlabel'
                 }
             })}}
-            {{ form_widget(registrationForm.plainPassword) }}
+            {{ form_widget(registrationForm.plainPassword,{
+                'attr':{
+                    'class': 'formWidget'
+                }
+            }) }}
         </div>
             <button type="submit" class="btn">Register</button>
         {{ form_end(registrationForm) }}
