@@ -78,3 +78,8 @@ header{
     display: flex;
     justify-content: center;
 }
+
+.logout{
+    background-color:  #e74c3c ;
+    color:  #dce0e1;
+}

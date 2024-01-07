@@ -25,8 +25,12 @@
                     <h1>MétéoWeb</h1>
                 </div>
                 <div class="headerBtn">
-                    <a class="formbtn" href="{{ path('app_login') }}">Connexion</a>
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <a class="formbtn logout" href="{{ path('app_logout') }}">Déconnexion</a>
+                    {% else %}
+                        <a class="formbtn" href="{{ path('app_login') }}">Connexion</a>
                     <a class="formbtn" href="{{ path('app_registration') }}">Inscription</a>
+                    {% endif %}
                 </div>
             </div>
         </header>
