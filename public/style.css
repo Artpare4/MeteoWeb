@@ -1,0 +1,46 @@
+body{
+    margin: 0;
+    background-color: #5eb5e0;
+}
+
+img{
+    margin: 4px;
+}
+
+.formbtn{
+    background-color: #ffbb00 ;
+    padding: 5px;
+    margin:4px;
+    font-size: 30px;
+    height: fit-content;
+    border-radius: 10px;
+    color: #000000;
+    text-decoration: none;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 3px solid;
+}
+
+.headercontent{
+    display: flex;
+    flex-direction:row;
+    flex-grow: 1;
+}
+.headertitle{
+    display: flex;
+    align-items: center;
+    color: #ffbb00 ;
+    font-size: 25px;
+}
+.headerBtn{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: end;
+    align-items: center;
+    flex-grow: 1;
+}
+
