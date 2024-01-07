@@ -5,3 +5,8 @@ index:
 registration:
     path: /register
     controller: App\Controller\RegistrationController::register
+
+login:
+    path: /login
+    controller: App\Controller\SecurityController::login
+
