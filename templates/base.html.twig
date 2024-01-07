@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -14,6 +15,9 @@
         {% endblock %}
     </head>
     <body>
+
+        <a href="{{ path('app_login') }}">Connexion</a>
+        <a href="{{ path('app_registration') }}">Inscription</a>
         {% block body %}{% endblock %}
     </body>
 </html>
