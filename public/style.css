@@ -6,6 +6,7 @@ body{
 img{
     margin: 4px;
 }
+
 .formbtn{
     background-color: #ffbb00 ;
     padding: 5px;
@@ -19,6 +20,7 @@ header{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    border-bottom: 3px solid;
 }
 
 .headercontent{
