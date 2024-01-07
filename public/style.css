@@ -53,4 +53,10 @@ header{
 .formRow{
     display: flex;
     flex-direction: column;
+    margin: 7px;
+}
+
+.formlabel{
+    font-size: 40px;
+    color: #ffbb00;
 }

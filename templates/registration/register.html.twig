@@ -10,19 +10,35 @@
 
         {{ form_start(registrationForm) }}
         <div class="formRow">
-            {{ form_label(registrationForm.firstname,'Prénom')}}
+            {{ form_label(registrationForm.firstname,'Prénom',{
+                'label_attr':{
+                    'class': 'formlabel'
+                }
+            }) }}
             {{ form_widget(registrationForm.firstname) }}
         </div>
         <div class="formRow">
-            {{ form_label(registrationForm.lastname,'Nom')}}
+            {{ form_label(registrationForm.lastname,'Nom',{
+                'label_attr':{
+                    'class': 'formlabel'
+                }
+            })}}
             {{ form_widget(registrationForm.lastname) }}
         </div>
         <div class="formRow">
-            {{ form_label(registrationForm.email,'Email')}}
+            {{ form_label(registrationForm.email,'Email',{
+                'label_attr':{
+                    'class': 'formlabel'
+                }
+            })}}
             {{ form_widget(registrationForm.email) }}
         </div>
         <div class="formRow">
-            {{ form_label(registrationForm.plainPassword,'Mot de passe')}}
+            {{ form_label(registrationForm.plainPassword,'Mot de passe',{
+                'label_attr':{
+                    'class': 'formlabel'
+                }
+            })}}
             {{ form_widget(registrationForm.plainPassword) }}
         </div>
             <button type="submit" class="btn">Register</button>
