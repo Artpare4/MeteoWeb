@@ -26,7 +26,7 @@
                 </div>
                 <div class="headerBtn">
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                        <a class="formbtn" href="{{ path('app_logout') }}">Déconnexion</a>
+                        <a class="formbtn logout" href="{{ path('app_logout') }}">Déconnexion</a>
                     {% else %}
                         <a class="formbtn" href="{{ path('app_login') }}">Connexion</a>
                     <a class="formbtn" href="{{ path('app_registration') }}">Inscription</a>
