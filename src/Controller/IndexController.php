@@ -19,8 +19,12 @@ class IndexController extends AbstractController
     #[Route('/', name: 'app_index')]
     public function index(): Response
     {
+
+        $request=$this->client->request(
+            'GET',
+            'https://api.open-meteo.com/v1/forecast?latitude=49.2653&longitude=4.0285&current=temperature_2m,precipitation,weather_code');
         return $this->render('index/index.html.twig', [
-            'controller_name' => 'IndexController',
+            'tmp'=>$request->toArray()
         ]);
     }
 }
