@@ -81,6 +81,7 @@
         {% else %}
             Forte averse de neige
         {% endif %}
+    {% endif %}
 {% elseif weather < 100 %} <!-- 95-96-99 -->
     {% if weather==95 %}
         Orage léger ou modéré
@@ -88,4 +89,6 @@
         Orage léger avec neige
     {% elseif weather== 99 %}
         Orage fort avec neige
+    {% endif %}
+
 {% endif %}
