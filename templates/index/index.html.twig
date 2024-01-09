@@ -8,7 +8,11 @@
         <h1>Météo actuelle de la ville de Reims</h1>
         <div class="meteoInformation">
         {% include('weather/_weather-icon.html.twig') %}
-        {% include('weather/_weather-name.html.twig') %}
+        <div class="information">
+            <p class="meteoName meteoData">{% include('weather/_weather-name.html.twig') %}</p>
+            <p class="meteoData">Température: {{ tmp.current.temperature_2m }}°C</p>
+            <p class="meteoData">Pourcentage de précipitation: {{ tmp.current.precipitation }}%</p>
+        </div>
         </div>
     </div>
 </div>
