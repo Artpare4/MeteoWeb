@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 
+{% set weather = tmp.current.weather_code|format_number  %}
 {% block title %}Hello IndexController!{% endblock %}
 
 {% block body %}

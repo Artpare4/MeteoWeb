@@ -1,4 +1,3 @@
-{% set weather = tmp.current.weather_code|format_number  %}
 <!-- Tous les codes sont issue de la documentation de l'API open-meteo-->
 {% if weather < 10 %} <!-- 0-1-2-3 -->
     {% if weather==0 %}
