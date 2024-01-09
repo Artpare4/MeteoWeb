@@ -3,9 +3,13 @@
 {% block title %}Hello IndexController!{% endblock %}
 
 {% block body %}
-<div class="example-wrapper">
-    {{ tmp.current.weather_code }}
-    {% include('weather/_weather-icon.html.twig') %}
-    {% include('weather/_weather-name.html.twig') %}
+<div class="main">
+    <div class="meteoResult">
+        <h1>Météo actuelle de la ville de Reims</h1>
+        <div class="meteoInformation">
+        {% include('weather/_weather-icon.html.twig') %}
+        {% include('weather/_weather-name.html.twig') %}
+        </div>
+    </div>
 </div>
 {% endblock %}

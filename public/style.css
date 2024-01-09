@@ -83,3 +83,17 @@ header{
     background-color:  #e74c3c ;
     color:  #dce0e1;
 }
+
+.meteoResult{
+    display: flex;
+    flex-direction: column;
+}
+
+.meteoInformation{
+    display: flex;
+    justify-content: space-between;
+}
+
+.meteoIcon{
+    height: 150px;
+}
