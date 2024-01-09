@@ -1,0 +1,49 @@
+<!-- Tous les codes sont issue de la documentation de l'API open-meteo-->
+{% if weather < 10 %} <!-- 0-1-2-3 -->
+    {% if weather==0 %}
+        <img class="meteoIcon" src="{{ asset('clear.png') }}" alt="temps claire">
+        {% elseif weather==1%}
+            <img class="meteoIcon" src="{{ asset('partly-cloudy.png') }}" alt="partiellement nuageux">
+        {% elseif weather==2%}
+            <img class="meteoIcon" src="{{ asset('sunny-spell.png') }}" alt="éclaircie">
+        {% else %}
+            <img class="meteoIcon" src="{{ asset('overcast.png') }}" alt="couvert">
+    {% endif %}
+
+{% elseif weather < 50 %} <!-- 45-48 -->
+        <img class="meteoIcon" src="{{ asset('fog.png') }}" alt="brouillard">
+
+{% elseif weather < 60 %} <!-- 51-53-55-56-57 -->
+        <img class="meteoIcon" src="{{ asset('drizzle.png') }}" alt="bruine">
+
+{% elseif weather < 70  %} <!-- 61-63-65-66-67 -->
+    {% if weather <= 65  %}
+        <img class="meteoIcon" src="{{ asset('rain.png') }}" alt="pluie">
+    {% else %}
+        <img class="meteoIcon" src="{{ asset('freezing-rain.png') }}" alt="pluie verglaçante">
+    {% endif %}
+
+{% elseif weather < 80 %} <!-- 71-73-75-77 -->
+    {% if weather <= 75 %}
+        {% if weather <=73 %}
+            <img class="meteoIcon" src="{{ asset('snow-fall-light.png') }}" alt="petite chute de neige" >
+        {% else %}
+            <img class="meteoIcon" src="{{ asset('snow-fall-heavy.png') }}" alt="forte chute de neige" >
+        {% endif %}
+    {% else %}
+        <img class="meteoIcon" src="{{ asset('snow-grain.png') }}" alt="grèle">
+    {% endif %}
+
+{% elseif weather < 90%} <!-- 80-81-82-85-86 -->
+    {% if weather <= 82%}
+        {% if weather <= 81 %}
+            <img class="meteoIcon" src="{{ asset('shower-light.png') }}" alt="petite averse">
+        {% else %}
+            <img class="meteoIcon" src="{{ asset('shower-heavy.png') }}" alt="grosse averse">
+        {% endif %}
+    {% else %}
+        <img class="meteoIcon" src="{{ asset('snow-shower.png') }}" alt="averse de neige">
+    {% endif %}
+{% elseif weather < 100 %} <!-- 95-96-99 -->
+    <img class="meteoIcon" src="{{ asset('thunderstorme.png') }}" alt="orages">
+{% endif %}

@@ -7,7 +7,7 @@ img{
     margin: 4px;
 }
 
-.formbtn,.btn{
+.formbtn,.btn,.meteoData{
     background-color: #ffbb00 ;
     padding: 5px;
     margin:4px;
@@ -82,4 +82,41 @@ header{
 .logout{
     background-color:  #e74c3c ;
     color:  #dce0e1;
+}
+
+.meteoResult{
+    display: flex;
+    flex-direction: column;
+}
+
+.meteoInformation{
+    display: flex;
+    justify-content: space-between;
+}
+
+.meteoIcon{
+    height: 150px;
+}
+
+.information{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.meteoData{
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+}
+.meteoName{
+    margin: 0;
+    font-size: 30px;
+}
+
+.titreMeteo{
+    color: #ffbb00;
+    font-size: 40px;
 }
