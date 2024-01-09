@@ -1,0 +1,91 @@
+{% set weather = tmp.current.weather_code|format_number  %}
+<!-- Tous les codes sont issue de la documentation de l'API open-meteo-->
+
+{% if weather < 10 %} <!-- 0-1-2-3 -->
+    {% if weather==0 %}
+        Temps claire
+    {% elseif weather==1%}
+        Partiellement nuageux
+    {% elseif weather==2%}
+        Eclaircie
+    {% else %}
+        Couvert
+    {% endif %}
+
+{% elseif weather < 50 %} <!-- 45-48 -->
+    {% if weather ==45 %}
+        Brouillard
+    {% else %}
+        Bruillard de givre
+    {% endif %}
+
+{% elseif weather < 60 %} <!-- 51-53-55-56-57 -->
+    {% if weather <= 55  %}
+        {% if weather==51 %}
+            Bruine légère
+        {% elseif weather==53 %}
+            Bruine modérée
+        {% else %}
+            Bruine forte
+        {% endif %}
+    {% else %}
+        {% if weather==56 %}
+            Pluie verglaçante légère
+        {% else %}
+            Pluie verglaçante forte
+        {% endif %}
+    {% endif %}
+
+{% elseif weather < 70  %} <!-- 61-63-65-66-67 -->
+    {% if weather <= 65  %}
+        {% if weather==61 %}
+            Pluie faible
+        {% elseif weather==63 %}
+            Pluie modérée
+        {% else %}
+            Pluie forte
+        {% endif %}
+    {% else %}
+        {% if weather==66 %}
+            Pluie verglaçante faible
+        {% else %}
+            Pluie verglaçante forte
+        {% endif %}
+    {% endif %}
+
+{% elseif weather < 80 %} <!-- 71-73-75-77 -->
+    {% if weather <= 75 %}
+        {% if weather ==71 %}
+            Faible chute de neige
+        {% elseif weather == 73 %}
+            Chute de neige modérée
+        {% elseif weather==75 %}
+            Forte chute de neige
+        {% endif %}
+    {% else %}
+        Grèle
+    {% endif %}
+
+{% elseif weather < 90%} <!-- 80-81-82-85-86 -->
+    {% if weather <= 82%}
+        {% if weather == 80 %}
+            Petite averse
+        {% elseif weather == 81 %}
+           Averse modérée
+        {% else %}
+            Forte Averse
+        {% endif %}
+    {% else %}
+        {% if weather == 85 %}
+            Faible averse de neige
+        {% else %}
+            Forte averse de neige
+        {% endif %}
+{% elseif weather < 100 %} <!-- 95-96-99 -->
+    {% if weather==95 %}
+        Orage léger ou modéré
+    {% elseif weather==96 %}
+        Orage léger avec neige
+    {% elseif weather== 99 %}
+        Orage fort avec neige
+{% endif %}
