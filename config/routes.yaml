@@ -13,3 +13,7 @@ app_login:
 app_logout:
     path: /logout
     controller: App\Controller\SecurityController::logout
+
+app_adresse:
+    path: /search
+    controller: App\Controller\AdresseController::index
