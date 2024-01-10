@@ -6,5 +6,9 @@
 
 <div class="example-wrapper">
     {% include('form/_search-bar.html.twig') %}
+    {% for adresse in adresses.features  %}
+        {{ dump(adresse) }}
+        {% include('adresse/_adresse-info.html.twig') %}
+    {% endfor %}
 </div>
 {% endblock %}
