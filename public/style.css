@@ -120,3 +120,26 @@ header{
     color: #ffbb00;
     font-size: 40px;
 }
+
+
+.listeAdresse{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.adresse{
+    background-color: #f1eded;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+
+.adresseVille{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

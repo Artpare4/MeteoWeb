@@ -4,11 +4,13 @@
 
 {% block body %}
 
-<div class="example-wrapper">
+<div>
+
     {% include('form/_search-bar.html.twig') %}
+    <div class="listeAdresse">
     {% for adresse in adresses.features  %}
-        {{ dump(adresse) }}
         {% include('adresse/_adresse-info.html.twig') %}
     {% endfor %}
+    </div>
 </div>
 {% endblock %}
