@@ -7,10 +7,13 @@
 <div>
 
     {% include('form/_search-bar.html.twig') %}
-    <div class="listeAdresse">
-    {% for adresse in adresses.features  %}
-        {% include('adresse/_adresse-info.html.twig') %}
-    {% endfor %}
-    </div>
+
+    {% if adresses is not null %}
+        <div class="listeAdresse">
+        {% for adresse in adresses.features  %}
+            {% include('adresse/_adresse-info.html.twig') %}
+        {% endfor %}
+        </div>
+    {% endif %}
 </div>
 {% endblock %}

@@ -49,7 +49,7 @@ class AdresseController extends AbstractController
         if($q!=''){
             $res=$this->client->request(
                 'GET',
-                "https://api-adresse.data.gouv.fr/search/?q=$q&type=housenumber&autocomplete=1")->toArray();
+                "https://api-adresse.data.gouv.fr/search/?q=$q&type=housenumber&limit=25&autocomplete=1")->toArray();
         }
         else{
             $res=null;
