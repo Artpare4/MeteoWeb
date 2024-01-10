@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\AdresseRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: AdresseRepository::class)]
@@ -21,6 +23,14 @@ class Adresse
 
     #[ORM\Column(length: 255)]
     private ?string $codePostal = null;
+
+    #[ORM\OneToMany(mappedBy: 'adresse', targetEntity: AssoAdresseUser::class)]
+    private Collection $users;
+
+    public function __construct()
+    {
+        $this->users = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -59,6 +69,36 @@ class Adresse
     public function setCodePostal(string $codePostal): static
     {
         $this->codePostal = $codePostal;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, AssoAdresseUser>
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(AssoAdresseUser $user): static
+    {
+        if (!$this->users->contains($user)) {
+            $this->users->add($user);
+            $user->setAdresse($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(AssoAdresseUser $user): static
+    {
+        if ($this->users->removeElement($user)) {
+            // set the owning side to null (unless already changed)
+            if ($user->getAdresse() === $this) {
+                $user->setAdresse(null);
+            }
+        }
 
         return $this;
     }
