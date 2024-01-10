@@ -131,15 +131,18 @@ header{
 
 .adresse{
     background-color: #f1eded;
-    width: fit-content;
     display: flex;
     flex-direction: column;
     margin-top: 20px;
     border-radius: 20px;
+    width: 500px;
+    padding: 10px;
+    align-items: center;
 }
-
+.adresseName{
+    text-align: center;
+}
 .adresseVille{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
 }
