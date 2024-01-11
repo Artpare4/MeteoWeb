@@ -22,7 +22,7 @@ class AdresseRepository extends ServiceEntityRepository
     }
 
 
-    public function findByAdresse(string $rue, string $cp, string $ville){
+    public function findByAdresse(string $rue, string $cp, string $ville,float $posX,float $posY){
         return $this->createQueryBuilder('a')
             ->where('a.rue = :rue')
             ->setParameter('rue',$rue)
@@ -30,6 +30,10 @@ class AdresseRepository extends ServiceEntityRepository
             ->setParameter('ville',$ville)
             ->andWhere('a.codePostal = :cp')
             ->setParameter('cp',$cp)
+            ->andWhere('a.positionX = :posX')
+            ->setParameter('posX',$posX)
+            ->andWhere('a.positionY = :posY')
+            ->setParameter('posY',$posY)
             ->getQuery()
             ->getResult();
 
