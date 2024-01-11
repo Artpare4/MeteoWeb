@@ -4,9 +4,9 @@
         <p>{{ adresse.properties.postcode }} - {{ adresse.properties.city}}</p>
     </div>
     <form method="get" action="/create">
-        <input aria-label="rue" name="rue" value="{{ adresse.properties.name | replace({' ':'%'}) }}" type="hidden">
+        <input aria-label="rue" name="rue" value="{{ adresse.properties.name }}" type="hidden">
         <input aria-label="postCode" name="postCode" value="{{ adresse.properties.postcode }}" type="hidden">
-        <input aria-label="city" name="city" value="{{ adresse.properties.city|replace({' ':'%'}) }}" type="hidden">
+        <input aria-label="city" name="city" value="{{ adresse.properties.city }}" type="hidden">
         <button type="submit">Ajouter</button>
     </form>
 </div>

@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Adresse;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -61,11 +64,19 @@ class AdresseController extends AbstractController
         ]);
     }
     #[Route('/create', name: 'app_create')]
-    public function create(Request $request): Response
+    public function create(Request $request,EntityManagerInterface $manager): Response
     {
         $rue=$request->query->get('rue');
         $postCode=$request->query->get('postCode');
         $ville=$request->query->get('city');
+
+        $adresse= new Adresse();
+        $adresse->setRue($rue);
+        $adresse->setCodePostal($postCode);
+        $adresse->setVille($ville);
+        $manager->persist($adresse);
+        $manager->flush();
+
 
         return $this->redirectToRoute('app_index');
     }
