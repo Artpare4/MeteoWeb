@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Adresse;
+use App\Entity\AssoAdresseUser;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -77,6 +78,12 @@ class AdresseController extends AbstractController
         $manager->persist($adresse);
         $manager->flush();
 
+        $user=$this->getUser();
+        $jointure= new AssoAdresseUser();
+        $jointure->setUser($user);
+        $jointure->setAdresse($adresse);
+        $manager->persist($jointure);
+        $manager->flush();
 
         return $this->redirectToRoute('app_index');
     }
