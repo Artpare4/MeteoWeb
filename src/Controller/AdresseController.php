@@ -113,12 +113,5 @@ class AdresseController extends AbstractController
         return $this->redirectToRoute('app_index');
     }
 
-    #[Route('/liste', name: 'app_liste')]
-    public function liste(): Response
-    {
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED');
-
-        return $this->render('adresse/list.html.twig');
-    }
 
 }
