@@ -19,6 +19,7 @@
 
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
         <div>
+            <h1 class="titreMeteo">Météo de vos adresses</h1>
             {% set i=0 %}
             {% for adresse in app.user.adresses  %}
             <div>
@@ -26,6 +27,12 @@
                 {{ adresse.adresse.codePostal }}
                 {{ adresse.adresse.ville }}
                 <a href="{{ path('app_delete',{'id':adresse.adresse.id}) }}">Delete</a>
+                <div>
+                    {% for weather in weatherAdr[i].daily.weather_code %}
+                        {% include('weather/_weather-icon.html.twig') %}
+                        {% include('weather/_weather-name.html.twig') %}
+                    {% endfor %}
+                </div>
             {% set i=i+1 %}
             </div>
             {% endfor %}
