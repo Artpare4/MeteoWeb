@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\AssoAdresseUserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -17,16 +18,32 @@ class IndexController extends AbstractController
     }
 
     #[Route('/', name: 'app_index')]
-    public function index(): Response
+    public function index(AssoAdresseUserRepository $adresseUserRepository): Response
     {
 
         $request=$this->client->request(
             'GET',
             'https://api.open-meteo.com/v1/forecast?latitude=49.2653&longitude=4.0285&current=temperature_2m,precipitation,weather_code');
         if($this->isGranted('IS_AUTHENTICATED_FULLY')){
+            $res=$adresseUserRepository->findBy(['user'=>$this->getUser()]);
+            $weatherAdr=[];
+
+            foreach ($res as $asso){
+                $positionX=$asso->getAdresse()->getPositionX();
+                $positionY=$asso->getAdresse()->getPositionY();
+                $request=$this->client->request(
+                    'GET',
+                    "https://api.open-meteo.com/v1/forecast?latitude=$positionX&longitude=$positionY&daily=weather_code,temperature_2m_max,precipitation_probability_max");
+                $weatherAdr[]=$request;
+            }
+            dd($weatherAdr);
+        }
+        else{
+            $weatherAdr=null;
         }
         return $this->render('index/index.html.twig', [
-            'tmp'=>$request->toArray()
+            'tmp'=>$request->toArray(),
+            'MétéoAdr'=>$weatherAdr
         ]);
     }
 }
