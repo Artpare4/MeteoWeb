@@ -28,11 +28,15 @@
                 {{ adresse.adresse.ville }}
                 <a class="formbtn logout" href="{{ path('app_delete',{'id':adresse.adresse.id}) }}">Delete</a>
                 <div class="weatherWeek">
+                    {% set j=0 %}
+
                     {% for weather in weatherAdr[i].daily.weather_code %}
                     <div class="weatherday">
                         {% include('weather/_weather-icon.html.twig') %}
                         <p class="meteoData">{% include('weather/_weather-name.html.twig') %}</p>
                     </div>
+                    {% set j=j+1 %}
+
                     {% endfor %}
                 </div>
             {% set i=i+1 %}
