@@ -24,6 +24,7 @@ class IndexController extends AbstractController
         $request=$this->client->request(
             'GET',
             'https://api.open-meteo.com/v1/forecast?latitude=49.2653&longitude=4.0285&current=temperature_2m,precipitation,weather_code');
+
         if($this->isGranted('IS_AUTHENTICATED_FULLY')){
             $res=$adresseUserRepository->findBy(['user'=>$this->getUser()]);
             $weatherAdr=[];
@@ -31,10 +32,10 @@ class IndexController extends AbstractController
             foreach ($res as $asso){
                 $positionX=$asso->getAdresse()->getPositionX();
                 $positionY=$asso->getAdresse()->getPositionY();
-                $request=$this->client->request(
+                $weather=$this->client->request(
                     'GET',
-                    "https://api.open-meteo.com/v1/forecast?latitude=$positionX&longitude=$positionY&daily=weather_code,temperature_2m_max,precipitation_probability_max");
-                $weatherAdr[]=$request->toArray();
+                    "https://api.open-meteo.com/v1/forecast?latitude=$positionX&longitude=$positionY&daily=weather_code");
+                $weatherAdr[]=$weather->toArray();
             }
         }
         else{
@@ -42,7 +43,7 @@ class IndexController extends AbstractController
         }
         return $this->render('index/index.html.twig', [
             'tmp'=>$request->toArray(),
-            'MétéoAdr'=>$weatherAdr
+            'weatherAdr'=>$weatherAdr
         ]);
     }
 }

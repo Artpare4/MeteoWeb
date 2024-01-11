@@ -19,12 +19,14 @@
 
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
         <div>
+            {% set i=0 %}
             {% for adresse in app.user.adresses  %}
             <div>
                 {{ adresse.adresse.rue }}
                 {{ adresse.adresse.codePostal }}
                 {{ adresse.adresse.ville }}
                 <a href="{{ path('app_delete',{'id':adresse.adresse.id}) }}">Delete</a>
+            {% set i=i+1 %}
             </div>
             {% endfor %}
         </div>
