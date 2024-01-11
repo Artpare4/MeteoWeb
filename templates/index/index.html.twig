@@ -26,7 +26,7 @@
                 {{ adresse.adresse.rue }}
                 {{ adresse.adresse.codePostal }}
                 {{ adresse.adresse.ville }}
-                <a href="{{ path('app_delete',{'id':adresse.adresse.id}) }}">Delete</a>
+                <a class="formbtn logout" href="{{ path('app_delete',{'id':adresse.adresse.id}) }}">Delete</a>
                 <div>
                     {% for weather in weatherAdr[i].daily.weather_code %}
                         {% include('weather/_weather-icon.html.twig') %}
