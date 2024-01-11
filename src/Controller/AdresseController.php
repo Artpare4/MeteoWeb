@@ -60,4 +60,13 @@ class AdresseController extends AbstractController
             'adresses'=>$res
         ]);
     }
+    #[Route('/create', name: 'app_create')]
+    public function create(): Response
+    {
+
+
+        return $this->render('adresse/index.html.twig', [
+            'controller_name' => 'AdresseController',
+        ]);
+    }
 }
