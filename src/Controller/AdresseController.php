@@ -101,9 +101,11 @@ class AdresseController extends AbstractController
     }
 
     #[Route('/delete', name: 'app_delete')]
-    public function delete(): Response
+    public function delete(Request $request): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED');
+        $user=$this->getUser();
+        $idAdresse=$request->query->get('idAdresse');
 
         return $this->redirectToRoute('app_index');
     }
