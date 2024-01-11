@@ -99,4 +99,13 @@ class AdresseController extends AbstractController
 
         return $this->redirectToRoute('app_index');
     }
+
+    #[Route('/delete', name: 'app_delete')]
+    public function delete(): Response
+    {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED');
+
+        return $this->redirectToRoute('app_index');
+    }
+
 }
