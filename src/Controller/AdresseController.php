@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Adresse;
 use App\Entity\AssoAdresseUser;
+use App\Repository\AdresseRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -65,7 +66,7 @@ class AdresseController extends AbstractController
         ]);
     }
     #[Route('/create', name: 'app_create')]
-    public function create(Request $request,EntityManagerInterface $manager): Response
+    public function create(Request $request,EntityManagerInterface $manager, AdresseRepository $adresseRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED');
 
@@ -73,12 +74,19 @@ class AdresseController extends AbstractController
         $postCode=$request->query->get('postCode');
         $ville=$request->query->get('city');
 
-        $adresse= new Adresse();
-        $adresse->setRue($rue);
-        $adresse->setCodePostal($postCode);
-        $adresse->setVille($ville);
-        $manager->persist($adresse);
-        $manager->flush();
+        $request=$adresseRepository->findByAdresse($rue,strval($postCode),$ville);
+
+        if(empty($request)){
+            $adresse= new Adresse();
+            $adresse->setRue($rue);
+            $adresse->setCodePostal($postCode);
+            $adresse->setVille($ville);
+            $manager->persist($adresse);
+            $manager->flush();
+        }
+        else{
+            $adresse= $request[0];
+        }
 
         $user=$this->getUser();
         $jointure= new AssoAdresseUser();
