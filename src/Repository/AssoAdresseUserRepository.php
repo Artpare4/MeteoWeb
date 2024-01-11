@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\AssoAdresseUser;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -20,7 +21,6 @@ class AssoAdresseUserRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, AssoAdresseUser::class);
     }
-
 //    /**
 //     * @return AssoAdresseUser[] Returns an array of AssoAdresseUser objects
 //     */

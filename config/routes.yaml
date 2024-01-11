@@ -23,5 +23,5 @@ app_create:
     controller: App\Controller\AdresseController::create
 
 app_delete:
-    path: /delete
+    path: /delete/{id}
     controller: App\Controller\AdresseController::delete

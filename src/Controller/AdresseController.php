@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Adresse;
 use App\Entity\AssoAdresseUser;
 use App\Repository\AdresseRepository;
+use App\Repository\AssoAdresseUserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -100,13 +101,15 @@ class AdresseController extends AbstractController
         return $this->redirectToRoute('app_index');
     }
 
-    #[Route('/delete', name: 'app_delete')]
-    public function delete(Request $request): Response
+    #[Route('/delete/{id}', name: 'app_delete',requirements: ['id' => '\d+'])]
+    public function delete($id,AdresseRepository$adresseRepository,AssoAdresseUserRepository $adresseUserRepository,EntityManagerInterface $manager): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED');
         $user=$this->getUser();
-        $idAdresse=$request->query->get('idAdresse');
-
+        $adresse= $adresseRepository->find($id);
+        $asso=$adresseUserRepository->findBy(['user'=>$user,'adresse'=>$adresse]);
+        $manager->remove($asso[0]);
+        $manager->flush();
         return $this->redirectToRoute('app_index');
     }
 
