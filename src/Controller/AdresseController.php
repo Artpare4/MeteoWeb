@@ -25,6 +25,8 @@ class AdresseController extends AbstractController
     #[Route('/search', name: 'app_adresse')]
     public function index(Request $request): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED');
+
         $q='';
         $rue=$request->query->get('rue');
         if($rue != null){
