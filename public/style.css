@@ -161,3 +161,12 @@ header{
     background-color: #ffbb00;
     color: black;
 }
+
+.weatherWeek{
+    display: flex;
+    flex-direction: row;
+}
+.weatherday{
+    display: flex;
+    flex-direction: column;
+}
