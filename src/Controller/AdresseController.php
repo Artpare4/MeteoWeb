@@ -76,7 +76,8 @@ class AdresseController extends AbstractController
         $rue=$request->query->get('rue');
         $postCode=$request->query->get('postCode');
         $ville=$request->query->get('city');
-
+        $posX=floatval($request->query->get('positionX'));
+        $posY=floatval($request->query->get('positionY'));
         $request=$adresseRepository->findByAdresse($rue,strval($postCode),$ville);
 
         if(empty($request)){
@@ -84,6 +85,8 @@ class AdresseController extends AbstractController
             $adresse->setRue($rue);
             $adresse->setCodePostal($postCode);
             $adresse->setVille($ville);
+            $adresse->setPositionX($posX);
+            $adresse->setPositionY($posY);
             $manager->persist($adresse);
             $manager->flush();
         }
