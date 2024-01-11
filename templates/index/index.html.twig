@@ -23,10 +23,14 @@
             {% set i=0 %}
             {% for adresse in app.user.adresses  %}
             <div>
-                {{ adresse.adresse.rue }}
-                {{ adresse.adresse.codePostal }}
-                {{ adresse.adresse.ville }}
-                <a class="formbtn logout" href="{{ path('app_delete',{'id':adresse.adresse.id}) }}">Delete</a>
+                <div class="adresseInfo">
+                    <p>{{ adresse.adresse.rue }}</p>
+                    &nbsp
+                    <p>{{ adresse.adresse.codePostal }}</p>
+                    &nbsp
+                    <p>{{ adresse.adresse.ville }}</p>
+                    <a class="formbtn logout" href="{{ path('app_delete',{'id':adresse.adresse.id}) }}">Delete</a>
+                </div>
                 <div class="weatherWeek">
                     {% set j=0 %}
 

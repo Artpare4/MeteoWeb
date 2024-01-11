@@ -170,3 +170,9 @@ header{
     display: flex;
     flex-direction: column;
 }
+
+.adresseInfo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
