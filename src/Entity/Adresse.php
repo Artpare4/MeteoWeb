@@ -27,6 +27,12 @@ class Adresse
     #[ORM\OneToMany(mappedBy: 'adresse', targetEntity: AssoAdresseUser::class)]
     private Collection $users;
 
+    #[ORM\Column]
+    private ?float $positionX = null;
+
+    #[ORM\Column]
+    private ?float $positionY = null;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -99,6 +105,30 @@ class Adresse
                 $user->setAdresse(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPositionX(): ?float
+    {
+        return $this->positionX;
+    }
+
+    public function setPositionX(float $positionX): static
+    {
+        $this->positionX = $positionX;
+
+        return $this;
+    }
+
+    public function getPositionY(): ?float
+    {
+        return $this->positionY;
+    }
+
+    public function setPositionY(float $positionY): static
+    {
+        $this->positionY = $positionY;
 
         return $this;
     }
