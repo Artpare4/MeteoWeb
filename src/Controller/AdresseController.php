@@ -67,6 +67,8 @@ class AdresseController extends AbstractController
     #[Route('/create', name: 'app_create')]
     public function create(Request $request,EntityManagerInterface $manager): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED');
+
         $rue=$request->query->get('rue');
         $postCode=$request->query->get('postCode');
         $ville=$request->query->get('city');
