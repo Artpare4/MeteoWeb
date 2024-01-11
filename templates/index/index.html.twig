@@ -16,5 +16,17 @@
         </div>
         </div>
     </div>
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <div>
+            {% for adresse in app.user.adresses  %}
+            <div>
+                {{ adresse.adresse.rue }}
+                {{ adresse.adresse.codePostal }}
+                {{ adresse.adresse.ville }}
+            </div>
+            {% endfor %}
+        </div>
+    {% endif %}
 </div>
 {% endblock %}
