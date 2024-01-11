@@ -165,6 +165,7 @@ header{
 .weatherWeek{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 .weatherday{
     display: flex;
@@ -175,4 +176,9 @@ header{
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+
+.adresseData{
+    font-size: 20px;
+    color: white;
 }

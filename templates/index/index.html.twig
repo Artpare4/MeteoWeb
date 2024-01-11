@@ -18,17 +18,17 @@
     </div>
 
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        <div>
+        <div class="listeAdresse">
             <h1 class="titreMeteo">Météo de vos adresses</h1>
             {% set i=0 %}
             {% for adresse in app.user.adresses  %}
             <div>
                 <div class="adresseInfo">
-                    <p>{{ adresse.adresse.rue }}</p>
+                    <p class="adresseData">{{ adresse.adresse.rue }}</p>
                     &nbsp
-                    <p>{{ adresse.adresse.codePostal }}</p>
+                    <p class="adresseData">{{ adresse.adresse.codePostal }}</p>
                     &nbsp
-                    <p>{{ adresse.adresse.ville }}</p>
+                    <p class="adresseData">{{ adresse.adresse.ville }}</p>
                     <a class="formbtn logout" href="{{ path('app_delete',{'id':adresse.adresse.id}) }}">Delete</a>
                 </div>
                 <div class="weatherWeek">
