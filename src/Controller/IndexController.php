@@ -34,9 +34,8 @@ class IndexController extends AbstractController
                 $request=$this->client->request(
                     'GET',
                     "https://api.open-meteo.com/v1/forecast?latitude=$positionX&longitude=$positionY&daily=weather_code,temperature_2m_max,precipitation_probability_max");
-                $weatherAdr[]=$request;
+                $weatherAdr[]=$request->toArray();
             }
-            dd($weatherAdr);
         }
         else{
             $weatherAdr=null;
