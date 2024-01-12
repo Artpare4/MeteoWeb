@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Adresse;
+use App\Entity\AssoAdresseUser;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;

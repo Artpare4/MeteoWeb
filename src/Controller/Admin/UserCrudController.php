@@ -6,6 +6,7 @@ use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
@@ -28,6 +29,9 @@ class UserCrudController extends AbstractCrudController
             TextField::new('lastname','Nom'),
             EmailField::new('email','Email'),
             ArrayField::new('roles','Rôles'),
+            AssociationField::new('adresses','Adresses')
+            ->setFormTypeOption('choice_label','adresse.rue')
+            ->setFormTypeOption('by_reference',false)
         ];
     }
 
