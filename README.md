@@ -1,6 +1,7 @@
 # MeteoWeb
 ## Arthur Parent
-
+![Static Badge](https://img.shields.io/badge/symfony-5.4-orange)
+![Static Badge](https://img.shields.io/badge/php-8.1-blue)
 ## Documentation
 La documentation du projet(MCD,Diagramme Use Case, Dump de la base de donnée) se situe dans le répertoire ``/Documentaion``.
 ## Scripts Composer
