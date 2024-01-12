@@ -38,7 +38,7 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('MeteoWeb');
+            ->setTitle('<img src="logometeo.png">');
     }
 
     public function configureMenuItems(): iterable
