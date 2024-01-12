@@ -22,7 +22,7 @@
             <h1 class="titreMeteo">Météo de vos adresses</h1>
             {% set i=0 %}
             {% for adresse in app.user.adresses  %}
-            <div>
+            <div class="weatherAdresse">
                 <div class="adresseInfo">
                     <p class="adresseData">{{ adresse.adresse.rue }}</p>
                     &nbsp

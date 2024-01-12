@@ -14,7 +14,8 @@ class UserFixtures extends Fixture
             'email'=>'test@exemple.com',
             'firstname'=>'Arthur',
             'lastname'=>'Parent',
-            'password'=>'test'
+            'password'=>'test',
+            'roles'=>['ROLE_ADMIN']
         ]);
 
         $manager->flush();
