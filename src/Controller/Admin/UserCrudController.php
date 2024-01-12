@@ -32,7 +32,12 @@ class UserCrudController extends AbstractCrudController
             TextField::new('firstname','Prénom'),
             TextField::new('lastname','Nom'),
             EmailField::new('email','Email'),
-            ArrayField::new('roles','Rôles')
+            ArrayField::new('roles','Rôles'),
+            AssociationField::new('adresses','Adresses')
+                ->setFormTypeOption('choice_label',function ($label){
+                    return $label->getAdresse()->getRue().' '.$label->getAdresse()->getVille().' '.$label->getAdresse()->getCodePostal();
+                })
+                ->setFormTypeOption('by_reference',false)
         ];
     }
 
