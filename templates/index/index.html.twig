@@ -33,9 +33,10 @@
                 </div>
                 <div class="weatherWeek">
                     {% set j=0 %}
-
+                    {% set day=['Aujourd\'hui','Demain','J+2','J+3','J+4','J+5','J+6'] %}
                     {% for weather in weatherAdr[i].daily.weather_code %}
                     <div class="weatherday">
+                        <p class="day">{{ day[j] }}</p>
                         {% include('weather/_weather-icon.html.twig') %}
                         <p class="meteoData">{% include('weather/_weather-name.html.twig') %}</p>
                     </div>
