@@ -16,5 +16,38 @@
         </div>
         </div>
     </div>
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <div class="listeAdresse">
+            <h1 class="titreMeteo">Météo de vos adresses</h1>
+            {% set i=0 %}
+            {% for adresse in app.user.adresses  %}
+            <div>
+                <div class="adresseInfo">
+                    <p class="adresseData">{{ adresse.adresse.rue }}</p>
+                    &nbsp
+                    <p class="adresseData">{{ adresse.adresse.codePostal }}</p>
+                    &nbsp
+                    <p class="adresseData">{{ adresse.adresse.ville }}</p>
+                    <a class="formbtn logout" href="{{ path('app_delete',{'id':adresse.adresse.id}) }}">Delete</a>
+                </div>
+                <div class="weatherWeek">
+                    {% set j=0 %}
+                    {% set day=['Aujourd\'hui','Demain','J+2','J+3','J+4','J+5','J+6'] %}
+                    {% for weather in weatherAdr[i].daily.weather_code %}
+                    <div class="weatherday">
+                        <p class="day">{{ day[j] }}</p>
+                        {% include('weather/_weather-icon.html.twig') %}
+                        <p class="meteoData">{% include('weather/_weather-name.html.twig') %}</p>
+                    </div>
+                    {% set j=j+1 %}
+
+                    {% endfor %}
+                </div>
+            {% set i=i+1 %}
+            </div>
+            {% endfor %}
+        </div>
+    {% endif %}
 </div>
 {% endblock %}

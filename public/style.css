@@ -120,3 +120,70 @@ header{
     color: #ffbb00;
     font-size: 40px;
 }
+
+
+.listeAdresse{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.adresse{
+    background-color: #f1eded;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    border-radius: 20px;
+    width: 500px;
+    padding: 10px;
+    align-items: center;
+}
+.adresseName{
+    text-align: center;
+}
+.adresseVille{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.search_bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 30px;
+}
+
+.textField,.button_search_bar{
+    font-size: 20px;
+    border-radius: 20px;
+    background-color: #ffbb00;
+    color: black;
+}
+
+.weatherWeek{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.weatherday{
+    display: flex;
+    flex-direction: column;
+}
+
+.adresseInfo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.adresseData{
+    font-size: 20px;
+    color: white;
+}
+
+.day{
+    text-align: center;
+    color: #FFFFFF;
+}

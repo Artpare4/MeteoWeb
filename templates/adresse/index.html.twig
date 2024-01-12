@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdresseController!{% endblock %}
+
+{% block body %}
+
+<div>
+
+    {% include('form/_search-bar.html.twig') %}
+
+    {% if adresses is not null %}
+        <div class="listeAdresse">
+        {% for adresse in adresses.features  %}
+            {% include('adresse/_adresse-info.html.twig') %}
+        {% endfor %}
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
