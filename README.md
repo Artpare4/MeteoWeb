@@ -45,16 +45,11 @@ composer start
 
 ## Descriptif de la réalisation
 
-Lors de ce projet, j'ai utiliser phpStorm en tant qu'IDE pour développer.
+Lors de ce projet, j'ai utilisé phpStorm en tant qu'IDE pour développer.
 
-Pour pouvoir mener à bien ce projet, j'ai du notement installer le paquet easyAdmin dans le bût de
-réaliser le CRUD des entités facilement.
-Pour ce qui est de la création des entités, j'ai utiliser le makeBundle de symfony. La création des formulaire d'inscription et
-de connexion à aussi été effectué avec le makeBundle.
-En ce qui concerne la base de donnée, j'ai utilisé un serveur Mysql fournis par le département informatique de l'IUT.
+Pour pouvoir mener à bien ce projet, j'ai dû notamment installer le paquet easyAdmin dans le but de réaliser le CRUD des entités facilement. Pour ce qui est de la création des entités, j'ai utilisé le makeBundle de symfony. La création des formulaires d'inscription et de connexion a aussi été effectuée avec le makeBundle. En ce qui concerne la base de données, j'ai utilisé un serveur Mysql fourni par le département informatique de l'IUT.
 
-Au cours de ce projet, j'ai du me familliariser avec l'utilisation des API avec symfony. Des requêtes à l'implémentation des
-valeurs reçus, j'ai du apprendre comment les gérer, les utilisés et les exploités pour en extraire les valeurs souhaités.
+Au cours de ce projet, j'ai dû me familiariser avec l'utilisation des API avec symfony. Des requêtes à l'implémentation des valeurs reçues, j'ai dû apprendre comment les gérer, les utiliser et les exploiter pour en extraire les valeurs souhaitées.
 
 
 ## Comptes Utilisateurs
